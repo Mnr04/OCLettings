@@ -10,6 +10,7 @@ def test_address_model_str(db):
     )
     assert str(address) == "123 Main St"
 
+
 def test_letting_model_str(db):
     """Tests the string representation of Letting."""
     address = Address.objects.create(
@@ -19,12 +20,14 @@ def test_letting_model_str(db):
     letting = Letting.objects.create(title="Super Appart", address=address)
     assert str(letting) == "Super Appart"
 
+
 def test_lettings_index_view(client):
     """Tests if the index page loads correctly."""
     url = reverse('lettings:index')
     response = client.get(url)
     assert response.status_code == 200
     assert b"<title>Lettings</title>" in response.content
+
 
 def test_letting_detail_view(client, db):
     """Tests if a specific letting page loads correctly."""
