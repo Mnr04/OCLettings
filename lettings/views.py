@@ -3,12 +3,14 @@ from .models import Letting
 
 
 def index(request):
+    """Displays a list of all lettings."""
     lettings_list = Letting.objects.all()
     context = {'lettings_list': lettings_list}
     return render(request, 'lettings/index.html', context)
 
 
 def letting(request, letting_id):
+    """Displays the details of a specific letting based on its ID."""
     letting = Letting.objects.get(id=letting_id)
     context = {
         'title': letting.title,
