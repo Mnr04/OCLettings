@@ -21,7 +21,7 @@ def test_letting_model_str(db):
     assert str(letting) == "Super Appart"
 
 
-def test_lettings_index_view(client):
+def test_lettings_index_view(client, db):
     """Tests if the index page loads correctly."""
     url = reverse('lettings:index')
     response = client.get(url)
