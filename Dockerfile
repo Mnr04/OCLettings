@@ -1,8 +1,8 @@
-FROM python:3.9-slim
+FROM python:3.10-slim
 
-#V ariables d'environnement
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+# Variables d'environnement
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
 # Définit le dossier de travail dans le conteneur
 WORKDIR /app
@@ -18,5 +18,5 @@ COPY . /app/
 # J'ouvre le port 8000 pour pouvoir voir le site sur mon navigateur
 EXPOSE 8000
 
-# La commande pour lancer le serveur Django,
+# La commande pour lancer le serveur Django
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
