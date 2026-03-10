@@ -7,8 +7,7 @@ from sentry_sdk.integrations.django import DjangoIntegration
 load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-SECRET_KEY = os.getenv('SECRET_KEY', 'fp$9^593hsriajg$_%=5trot9g!1qa@ew(o-1#@=&4%=hp46(s')
+SECRET_KEY = os.getenv('SECRET_KEY', 'dummy-secret-key-for-build')
 
 sentry_sdk.init(
     dsn=os.getenv('SENTRY_DSN'),
