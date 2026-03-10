@@ -18,10 +18,10 @@ def profile(request, username):
     """Displays the details of a specific user profile."""
     try:
         profile = Profile.objects.get(user__username=username)
-        logger.info(f"Détail consulté pour le profil de : {username}")
+        logger.info(f"Détail consulté pour le profil de: {username}")
         context = {'profile': profile}
         return render(request, 'profiles/profile.html', context)
 
     except Profile.DoesNotExist as e:
-        logger.error(f"Erreur : Le profil de {username} n'existe pas. ({e})")
+        logger.error(f"Erreur: Le profil de {username} n'existe pas. ({e})")
         raise Http404("Profil introuvable")

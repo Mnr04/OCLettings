@@ -18,7 +18,7 @@ def letting(request, letting_id):
     """Displays the details of a specific letting based on its ID."""
     try:
         letting = Letting.objects.get(id=letting_id)
-        logger.info(f"Détail consulté pour la location : {letting.title}")
+        logger.info(f"Détail consulté pour la location: {letting.title}")
         context = {
             'title': letting.title,
             'address': letting.address,
@@ -26,5 +26,5 @@ def letting(request, letting_id):
         return render(request, 'lettings/letting.html', context)
 
     except Letting.DoesNotExist as e:
-        logger.error(f"Erreur : La location avec l'ID {letting_id} n'existe pas. ({e})")
+        logger.error(f"Erreur: La location avec l'ID {letting_id} n'existe pas. ({e})")
         raise Http404("Location introuvable")
