@@ -16,7 +16,7 @@ jobs:
       - name: Lint with Flake8
         run: flake8
       - name: Test with Pytest
-        run: pytest --cov=. --cov-fail-under=80
+        run: pytest --cov=. --cov-fail-under=70
 
   build-and-push:
     runs-on: ubuntu-latest

@@ -39,3 +39,4 @@ sphinxcontrib-qthelp==1.0.7
 sphinxcontrib-serializinghtml==1.1.10
 sqlparse==0.5.5
 urllib3==2.6.3
+whitenoise==6.9.0
