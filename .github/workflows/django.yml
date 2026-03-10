@@ -37,8 +37,8 @@ jobs:
           push: true
           platforms: linux/amd64
           tags: |
-            jrm76/oc-lettings:${{ github.sha }}
-            jrm76/oc-lettings:latest
+            jrm76/oclettings:${{ github.sha }}
+            jrm76/oclettings:latest
 
   deploy:
     runs-on: ubuntu-latest
@@ -46,4 +46,4 @@ jobs:
     if: github.ref == 'refs/heads/master'
     steps:
       - name: Trigger Render Deployment
-        run: curl -f ${{ secrets.RENDER_DEPLOY_HOOK }}
+        run: curl -f "${{ secrets.RENDER_DEPLOY_HOOK }}"
