@@ -30,7 +30,7 @@ sentry-sdk==2.54.0
 setuptools==82.0.0
 six==1.17.0
 snowballstemmer==3.0.1
-Sphinx==9.1.0
+Sphinx==7.4.7
 sphinxcontrib-applehelp==2.0.0
 sphinxcontrib-devhelp==2.0.0
 sphinxcontrib-htmlhelp==2.1.0
@@ -39,4 +39,4 @@ sphinxcontrib-qthelp==2.0.0
 sphinxcontrib-serializinghtml==2.0.0
 sqlparse==0.5.5
 urllib3==2.6.3
-whitenoise==6.12.0
+whitenoise==6.9.0
