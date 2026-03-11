@@ -1,3 +1,6 @@
+"""
+Views for the profiles application.
+"""
 import logging
 from django.shortcuts import render
 from django.http import Http404
