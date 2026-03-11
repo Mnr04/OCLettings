@@ -29,32 +29,3 @@ def test_profile_detail_view(client, db):
     response = client.get(url)
     assert response.status_code == 200
     assert b"johndoe" in response.content
-from django.test import TestCase
-from django.urls import reverse
-from django.contrib.auth.models import User
-from .models import Profile
-
-class ProfilesTest(TestCase):
-
-    def setUp(self):
-        """Préparation d'un faux utilisateur et de son profil."""
-        self.user = User.objects.create(username="johndoe")
-        self.profile = Profile.objects.create(
-            user=self.user,
-            favorite_city="Paris"
-        )
-
-    def test_profiles_index(self):
-        """Teste la page qui liste tous les profils."""
-        response = self.client.get(reverse('profiles:index'))
-
-        self.assertEqual(response.status_code, 200)
-        self.assertIn(b"johndoe", response.content)
-
-    def test_profile_detail(self):
-        """Teste la page de détail d'un profil."""
-        # L'URL des profils prend un nom d'utilisateur (username) en paramètre
-        response = self.client.get(reverse('profiles:profile', args=["johndoe"]))
-
-        self.assertEqual(response.status_code, 200)
-        self.assertIn(b"johndoe", response.content)
