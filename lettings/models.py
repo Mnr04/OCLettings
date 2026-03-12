@@ -18,6 +18,7 @@ class Address(models.Model):
         verbose_name_plural = "Addresses"
 
     def __str__(self):
+        """Returns the string representation of an Address."""
         return f'{self.number} {self.street}'
 
 
@@ -27,4 +28,5 @@ class Letting(models.Model):
     address = models.OneToOneField(Address, on_delete=models.CASCADE)
 
     def __str__(self):
+        """Returns the string representation of a Letting."""
         return self.title

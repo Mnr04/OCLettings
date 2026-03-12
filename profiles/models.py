@@ -11,4 +11,5 @@ class Profile(models.Model):
     favorite_city = models.CharField(max_length=64, blank=True)
 
     def __str__(self):
+        """Returns the username of the profile."""
         return self.user.username
