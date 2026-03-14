@@ -68,7 +68,7 @@ This project uses pytest for unit testing and flake8 for linting.
 Run tests and check coverage:
 
 ```Bash
-pytest --cov=.
+python -m pytest --cov=.
 ```
 
 Run linting:
