@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Bienvenue dans la documentation de Orange County Lettings ! &#8212; OCLettings  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=12dfc556" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="bienvenue-dans-la-documentation-de-orange-county-lettings">
+<h1>Bienvenue dans la documentation de Orange County Lettings !<a class="headerlink" href="#bienvenue-dans-la-documentation-de-orange-county-lettings" title="Link to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="description-du-projet">
+<h1>Description du projet<a class="headerlink" href="#description-du-projet" title="Link to this heading">¶</a></h1>
+<p>Le projet est une application web permettant de consulter des profils d’utilisateurs et des annonces de location immobilière.</p>
+</section>
+<section id="installation-du-projet">
+<h1>Installation du projet<a class="headerlink" href="#installation-du-projet" title="Link to this heading">¶</a></h1>
+<ol class="arabic simple">
+<li><p>Clonez le dépôt GitHub.</p></li>
+<li><p>Créez un environnement virtuel : <cite>python -m venv venv</cite>.</p></li>
+<li><p>Activez l’environnement et installez les dépendances : <cite>pip install -r requirements.txt</cite>.</p></li>
+</ol>
+</section>
+<section id="guide-de-demarrage-rapide">
+<h1>Guide de démarrage rapide<a class="headerlink" href="#guide-de-demarrage-rapide" title="Link to this heading">¶</a></h1>
+<p>Pour lancer le projet localement :
+Exécutez <cite>python manage.py runserver</cite> et rendez-vous sur <cite>http://localhost:8000</cite>.</p>
+</section>
+<section id="technologies-et-langages">
+<h1>Technologies et langages<a class="headerlink" href="#technologies-et-langages" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>Python 3.x</p></li>
+<li><p>Django 3.x</p></li>
+<li><p>SQLite (local)</p></li>
+<li><p>Docker / GitHub Actions / Render</p></li>
+</ul>
+</section>
+<section id="structure-de-la-base-de-donnees">
+<h1>Structure de la base de données<a class="headerlink" href="#structure-de-la-base-de-donnees" title="Link to this heading">¶</a></h1>
+<p>La base de données est divisée en deux applications principales :
+- <strong>Lettings</strong> : Contient les modèles <cite>Address</cite> et <cite>Letting</cite>.
+- <strong>Profiles</strong> : Contient le modèle <cite>Profile</cite> lié au modèle <cite>User</cite> de Django.</p>
+</section>
+<section id="guide-d-utilisation">
+<h1>Guide d’utilisation<a class="headerlink" href="#guide-d-utilisation" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p><strong>Utilisateurs</strong> : Naviguez sur la page d’accueil, consultez la liste des locations et des profils.</p></li>
+<li><p><strong>Administrateurs</strong> : Connectez-vous sur <cite>/admin</cite> pour ajouter ou modifier des locations et des profils.</p></li>
+</ul>
+</section>
+<section id="deploiement-et-gestion">
+<h1>Déploiement et gestion<a class="headerlink" href="#deploiement-et-gestion" title="Link to this heading">¶</a></h1>
+<p>Le déploiement est automatisé via un pipeline CI/CD sur GitHub Actions. À chaque push sur la branche <cite>master</cite>, le code est testé, une image Docker est construite puis poussée sur Docker Hub, et l’application est déployée sur Render.</p>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">OCLettings</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2026, JR.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
