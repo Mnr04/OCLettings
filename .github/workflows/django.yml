@@ -3,6 +3,9 @@ name: CI/CD Pipeline
 
 on: [push, pull_request]
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   # Job 1: Run Linting and Tests
   test:
@@ -37,11 +40,11 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:
+          context: .
           push: true
           platforms: linux/amd64
-          tags: |
-            jrm76/oclettings:${{ github.sha }}
-            jrm76/oclettings:latest
+          tags: jrm76/oclettings:${{ github.sha }},jrm76/oclettings:latest
+
   # Job 3: Deploy to Render
   deploy:
     runs-on: ubuntu-latest
