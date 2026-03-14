@@ -83,9 +83,8 @@ To build the documentation locally:
 ```Bash
 cd doc
 make html
+open build/html/index.html
 ```
-
-Open doc/build/html/index.html in your browser to view it.
 
 ### Deployment
 The deployment process is fully automated using GitHub Actions, Docker Hub, and Render.
