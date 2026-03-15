@@ -1,39 +1,55 @@
-# GitHub Actions workflow for CI/CD pipeline
+# This workflow automates the CI/CD pipeline for the Django application.
 name: CI/CD Pipeline
 
+# Run this workflow on every code push or pull request to ensure code quality
 on: [push, pull_request]
 
 jobs:
-  # Job 1: Run Linting and Tests
+  # Job 1: Code validation
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
           python-version: '3.10'
+
+      # Install the required Python packages so we can run our tools
       - name: Install dependencies
         run: pip install -r requirements.txt
+
+      # Enforce PEP8 styling rules to keep the code clean
       - name: Lint with Flake8
         run: flake8
+
+      # Run all tests and ensure at least 80% of the code is covered
       - name: Test with Pytest
         run: pytest --cov=. --cov-fail-under=80
 
-  # Job 2: Build and Push Docker image (Only on master if tests pass)
+  # Job 2: Docker packaging
   build-and-push:
     runs-on: ubuntu-latest
+    # Wait for the 'test' job to pass before starting this one
     needs: test
+    # Only build and push the image if we are updating the main branch
     if: github.ref == 'refs/heads/master'
+
     steps:
       - uses: actions/checkout@v5
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v4
+
+      # Securely authenticate to Docker Hub using GitHub Secrets
       - name: Log in to Docker Hub
         uses: docker/login-action@v4
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+
+      # Build the image and push it
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
@@ -42,11 +58,14 @@ jobs:
           platforms: linux/amd64
           tags: jrm76/oclettings:${{ github.sha }},jrm76/oclettings:latest
 
-  # Job 3: Deploy to Render
+  # Server Deployment
   deploy:
     runs-on: ubuntu-latest
+    # Wait for the Docker image to be securely hosted on Docker Hub
     needs: build-and-push
     if: github.ref == 'refs/heads/master'
+
     steps:
+      # Ping the Render webhook to tell the server to pull the new image and restart
       - name: Trigger Render Deployment
         run: curl -f "${{ secrets.RENDER_DEPLOY_HOOK }}"

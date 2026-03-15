@@ -1,13 +1,18 @@
+# This file tells Read the Docs how to set up the server to build our documentation
+
 version: 2
 
+# Set up the server environment
 build:
   os: ubuntu-24.04
   tools:
     python: "3.10"
 
+# Tell Read the Docs exactly where to find our Sphinx settings
 sphinx:
   configuration: doc/source/conf.py
 
+# Install project dependencies
 python:
   install:
     - requirements: requirements.txt
