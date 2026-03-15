@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 
 
 def index(request):
-    """Displays a list of all user profiles."""
+    """Displays a list of all user profiles. Test automatisation"""
     logger.info("La page index des Profiles a été consultée.")
     profiles_list = Profile.objects.all()
     context = {'profiles_list': profiles_list}
