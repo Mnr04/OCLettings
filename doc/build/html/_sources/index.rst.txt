@@ -1,43 +1,73 @@
-Bienvenue dans la documentation de Orange County Lettings !
-===========================================================
+Welcome to the Orange County Lettings documentation!
+======================================================
 
 .. toctree::
    :maxdepth: 2
-   :caption: Table des matières:
+   :caption: Table of Contents:
 
-Description du projet
-=====================
-Le projet est une application web permettant de consulter des profils d'utilisateurs et des annonces de location immobilière.
+Project Description
+===================
+The project is a web application that allows users to browse user profiles and real estate rental listings.
 
-Installation du projet
-======================
-1. Clonez le dépôt GitHub.
-2. Créez un environnement virtuel : `python -m venv venv`.
-3. Activez l'environnement et installez les dépendances : `pip install -r requirements.txt`.
+Project Installation
+====================
+1. Clone the GitHub repository.
+2. Create a virtual environment: `python -m venv venv`.
+3. Activate the environment and install dependencies: `pip install -r requirements.txt`.
 
-Guide de démarrage rapide
-=========================
-Pour lancer le projet localement :
-Exécutez `python manage.py runserver` et rendez-vous sur `http://localhost:8000`.
+Quick Start Guide
+=================
+To run the project locally:
+Execute `python manage.py runserver` and go to `http://localhost:8000`.
 
-Technologies et langages
-========================
+Technologies and Languages
+==========================
 - Python 3.x
 - Django 3.x
 - SQLite (local)
 - Docker / GitHub Actions / Render
 
-Structure de la base de données
-===============================
-La base de données est divisée en deux applications principales :
-- **Lettings** : Contient les modèles `Address` et `Letting`.
-- **Profiles** : Contient le modèle `Profile` lié au modèle `User` de Django.
+Database Structure
+==================
+The database is divided into two main applications:
+- **Lettings**: Contains the `Address` and `Letting` models.
+- **Profiles**: Contains the `Profile` model linked to the Django `User` model.
 
-Guide d'utilisation
-===================
-- **Utilisateurs** : Naviguez sur la page d'accueil, consultez la liste des locations et des profils.
-- **Administrateurs** : Connectez-vous sur `/admin` pour ajouter ou modifier des locations et des profils.
+Programming Interfaces (Docstrings)
+===================================
 
-Déploiement et gestion
-======================
-Le déploiement est automatisé via un pipeline CI/CD sur GitHub Actions. À chaque push sur la branche `master`, le code est testé, une image Docker est construite puis poussée sur Docker Hub, et l'application est déployée sur Render.
+Profiles Application
+--------------------
+
+**Views**
+
+.. autofunction:: profiles.views.index
+.. autofunction:: profiles.views.profile
+
+**Models**
+
+.. autoclass:: profiles.models.Profile
+
+
+Lettings Application
+--------------------
+
+**Views**
+
+.. autofunction:: lettings.views.index
+.. autofunction:: lettings.views.letting
+
+**Models**
+
+.. autoclass:: lettings.models.Address
+.. autoclass:: lettings.models.Letting
+
+User Guide
+==========
+- **Users**: Browse the home page, view the list of lettings and profiles.
+- **Administrators**: Log in to `/admin` to add or modify lettings and profiles.
+
+Deployment and Management
+=========================
+Deployment is automated via a CI/CD pipeline on GitHub Actions.
+On every push to the `master` branch, the code is tested, a Docker image is built and pushed to Docker Hub, and the application is deployed on Render.
