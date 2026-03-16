@@ -29,3 +29,23 @@ def test_profile_detail_view(client, db):
     response = client.get(url)
     assert response.status_code == 200
     assert b"johndoe" in response.content
+
+
+def test_navigation_from_index_to_profile(client, db):
+    """Tests the full navigation flow from index to profile detail."""
+    user = User.objects.create(username="johndoe")
+    Profile.objects.create(user=user, favorite_city="Paris")
+
+    # Load Index
+    index_url = reverse('profiles:index')
+    response = client.get(index_url)
+    assert response.status_code == 200
+
+    # Check that the link to the profile is present in the page
+    profile_url = reverse('profiles:profile', args=["johndoe"])
+    assert profile_url.encode() in response.content
+
+    # Follow the link and check the detail page
+    response = client.get(profile_url)
+    assert response.status_code == 200
+    assert b"Paris" in response.content
