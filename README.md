@@ -52,8 +52,14 @@ This project (Version 2.0) introduces a modern, modular architecture, transition
   SECRET_KEY=your_local_secret_key
   SENTRY_DSN=your_sentry_dsn_url
   ```
+5. **Run database migrations:**
+   Before running the server for the first time, you must apply the database migrations:
 
-5. **Run the application:**
+   ```python
+   python manage.py migrate
+   ```
+
+6. **Run the application:**
 
  ```python
   python manage.py runserver
