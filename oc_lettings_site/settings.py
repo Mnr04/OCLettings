@@ -3,22 +3,15 @@ from pathlib import Path
 from dotenv import load_dotenv
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
-import logging
-from sentry_sdk.integrations.logging import LoggingIntegration
 
 load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY', 'dummy-secret-key-for-build')
 
-sentry_logging = LoggingIntegration(
-    level=logging.INFO,
-    event_level=logging.INFO
-)
-
 sentry_sdk.init(
     dsn=os.getenv('SENTRY_DSN'),
-    integrations=[DjangoIntegration(), sentry_logging],
+    integrations=[DjangoIntegration()],
     traces_sample_rate=1.0,
     send_default_pii=True
 )
